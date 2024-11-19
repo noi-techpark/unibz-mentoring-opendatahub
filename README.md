@@ -50,16 +50,20 @@ For most of the projects I can think of, it would makes sense to work at the plu
 ### Some examples:
 
 **Get a list of all available stations:**
+
 `https://mobility.api.opendatahub.com/v2/flat`
 
 **Get all e-charging stations including details or e-charging plugs:**
+
 `https://mobility.api.opendatahub.com/v2/flat/EChargingStation`
 
 `https://mobility.api.opendatahub.com/v2/flat/EChargingPlug`
 
 **Get all the `distinct` data providers for all the e-charging station data:**
+
 `https://mobility.api.opendatahub.com/v2/flat/EChargingStation?select=sorigin`
 
 **Get all the data types availables:**
+
 `https://mobility.api.opendatahub.com/v2/flat/EChargingStation/*?select=tname`
 
