@@ -76,7 +76,7 @@ For this part I suggest working with Postman befor using the java http client.
 
 `https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/echarging-plug-status/2024-11-15/2024-11-16`
 
-**Limit the number of results **
+**Limit the number of results**
 
 Limit your output by adding `limit` to your request, and paginate your
 results with an `offset`. If you want to disable the limit, set it to a negative
@@ -134,7 +134,8 @@ How to retrieve only some given fields from the `active` e-charging plugs, this 
 
 `https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/echarging-plug-status/2024-11-15/2024-11-16?limit=200&select=sorigin,sname,mvalidtime,mperiod,mvalue&where=sorigin.eq.route220,sactive.eq.true`
 
-
+## Historical Data and request limits
+[Wiki](https://github.com/noi-techpark/odh-docs/wiki/Historical-Data-and-Request-Rate-Limits)
 
 
 
