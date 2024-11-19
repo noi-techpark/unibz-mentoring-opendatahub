@@ -8,20 +8,16 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         try {
-            // Initialize the client
             OpenDataHubClient client = new OpenDataHubClient("https://mobility.api.opendatahub.com/v2");
 
-            // Set up query parameters
             Map<String, String> queryParams = new HashMap<>();
             queryParams.put("limit", "200");
             queryParams.put("select", "sorigin,sname,mvalidtime,mperiod,mvalue");
             queryParams.put("where", "sorigin.eq.route220");
 
-            // Set up date range
             LocalDateTime from = LocalDateTime.of(2024, 11, 15, 0, 0);
             LocalDateTime to = LocalDateTime.of(2024, 11, 16, 0, 0);
 
-            // Make the API call
             String response = client.getHistoricalData(
                 "EChargingPlug", 
                 "echarging-plug-status", 
@@ -30,7 +26,6 @@ public class Main {
                 queryParams
             );
 
-            // Print the response
             System.out.println("API Response:");
             //System.out.println(response);
 
@@ -38,7 +33,6 @@ public class Main {
 
             List<StationData> stationDataList = service.parseStationData(response);
     
-            // Process your data
             System.out.println("\nProcessed stations:");
             stationDataList.forEach(data -> {
                 System.out.println("Station: " + data.getSname() + 
