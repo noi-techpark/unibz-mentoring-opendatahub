@@ -142,6 +142,7 @@ How to retrieve only some given fields from the `active` e-charging plugs, this 
 
 ## Additional Resources
 - [Historical Data and Request Limits](https://github.com/noi-techpark/odh-docs/wiki/Historical-Data-and-Request-Rate-Limits)
+- [Open Data Hub General Overview](https://docs.opendatahub.com/en/latest/intro.html#project-overview)
 
 ## Getting Started
 1. Fork this repository
