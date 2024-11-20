@@ -156,6 +156,7 @@ How to retrieve only some given fields from the `active` e-charging plugs, this 
 - [Historical Data and Request Limits](https://github.com/noi-techpark/odh-docs/wiki/Historical-Data-and-Request-Rate-Limits)
 - [Open Data Hub General Overview](https://docs.opendatahub.com/en/latest/intro.html#project-overview)
 - [Data Browser](https://databrowser.opendatahub.com/)
+- [Ninja Api] (https://github.com/noi-techpark/it.bz.opendatahub.api.mobility-ninja/blob/main/README.md)
 
 ## Getting Started
 1. Fork this repository
