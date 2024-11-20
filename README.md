@@ -154,7 +154,7 @@ How to retrieve only some given fields from the `active` e-charging plugs, this 
 ### Ideas for data elaborations:
 - Calculate the average availability percentage of echarging stations, aggregated per hour
 - Predict the availability of an echarging station within the next hour
-- ecc..
+- etc..
 
 
 
