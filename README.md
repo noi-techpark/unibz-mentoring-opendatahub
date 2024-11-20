@@ -141,6 +141,7 @@ How to retrieve only some given fields from the `active` e-charging plugs, this 
 `https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/echarging-plug-status/2024-11-15/2024-11-16?limit=200&select=sorigin,sname,mvalidtime,mperiod,mvalue&where=sorigin.eq.route220,sactive.eq.true`
 
 ## Additional Resources
+- [Open Data Hub Official Website](https://opendatahub.com/)
 - [Historical Data and Request Limits](https://github.com/noi-techpark/odh-docs/wiki/Historical-Data-and-Request-Rate-Limits)
 - [Open Data Hub General Overview](https://docs.opendatahub.com/en/latest/intro.html#project-overview)
 - [Data Browser](https://databrowser.opendatahub.com/)
