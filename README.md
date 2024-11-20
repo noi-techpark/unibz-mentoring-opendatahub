@@ -25,6 +25,17 @@ Stations can:
 - Exist without measurements
 - Have parent-child relationships
 
+### Representation
+
+We have various types of representations to choose from. Separate each type with
+commas:
+- type #1: `flat` or `tree`
+- type #2: `node`, `edge` or `event` (`node` is the default and can be omitted)
+
+The `flat` one shows each JSON object with all selected attributes at the first
+level. The `tree` representation, shows data in a more structured and hierarchical way. 
+For compactness, we will use only flat representations throughout this tutorial.
+
 ## Dataset Details
 
 ### Focus Area
