@@ -1,3 +1,5 @@
+[![REUSE Compliance](https://github.com/noi-techpark/unibz-mentoring-opendatahub/actions/workflows/reuse-lint.yml/badge.svg)](https://github.com/noi-techpark/opendatahub-docs/wiki/REUSE#badges)
+
 # OpenDataHub API Tutorial - UNIBZ Mentoring Session
 
 ## Overview
