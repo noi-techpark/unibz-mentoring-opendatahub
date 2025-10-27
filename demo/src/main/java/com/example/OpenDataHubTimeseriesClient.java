@@ -15,11 +15,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class OpenDataHubClient {
+public class OpenDataHubTimeseriesClient {
     private final String baseUrl;
     private final HttpClient client;
 
-    public OpenDataHubClient(String baseUrl) {
+    public OpenDataHubTimeseriesClient(String baseUrl) {
         this.baseUrl = baseUrl;
         this.client = HttpClient.newHttpClient();
     }

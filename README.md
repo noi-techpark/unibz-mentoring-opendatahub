@@ -21,137 +21,42 @@ A measurement is a timestamped data point consisting of:
 - **Provenance**: Identifier and version of the data provider
 - **Period**: Timeframe and update frequency of measurements
 
-### Station Hierarchy
+### Stations
 Stations can:
 - Have 0-n data types
 - Exist without measurements
 - Have parent-child relationships
 
-### Representation
-
-We have various types of representations to choose from. Separate each type with
-commas:
-- type #1: `flat` or `tree`
-- type #2: `node`, `edge` or `event` (`node` is the default and can be omitted)
-
-The `flat` one shows each JSON object with all selected attributes at the first
-level. The `tree` representation, shows data in a more structured and hierarchical way. 
-For compactness, we will use only flat representations throughout this tutorial.
+### Content Entities
+Entites are a set onf information describing something.
 
 ## Dataset Details
 
-### Focus Area
+### Focus Area Timeseries
 - Domain: Mobility (E-charging stations)
 - Primary Provider: `route220`
 - Optional Extensions: ALPERIA and others
 
 ### Station Types
-1. **EChargingStation**
-   - Represents a physical location with multiple chargers
-   - Data type: `number-available` (available columns count)
+**EChargingStation**
+- Represents a physical location with multiple chargers
+- Data type: `number-available` (available columns count)
 
-2. **EChargingPlug**
-   - Individual charging column within a station
-   - Data type: `echarging-plug-status` (0 or 1 for usage state)
-   - Always associated with a parent EChargingStation
+
+### Focus Content
+- Domain: Tourism
+- Entity: Accommodations
+
+**Accommodations**
+- Represents Accommodations with useful details
 
 ## API Reference
 
 For this part I suggest working with Postman befor using the java http client.
 
-### Basic structure of the request:
+[Content Api](https://tourism.opendatahub.com/swagger/index.html#/Accommodation/AccommodationList)
+[Timeseries Api](https://swagger.opendatahub.com/?url=https://mobility.api.opendatahub.com/v2/apispec)
 
-`endpoint/v2/{representation}/{stationTypes}/{dataTypes}/{from}/{to}`
-
-`endpoint/v2/{representation}/{stationTypes}/{dataTypes}/latest`
-
-`endpoint/v2/{representation}/{stationTypes}/{dataTypes}`
-
-### Some examples of generic calls:
-
-**Get a list of all available stations:**
-
-`https://mobility.api.opendatahub.com/v2/flat`
-
-**Get all e-charging stations including details or e-charging plugs:**
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingStation`
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingPlug`
-
-**Get all the `distinct` data providers for all the e-charging station data:**
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingStation?select=sorigin`
-
-**Get all the data types availables for the e-charging stations and for the e-charging plugs:**
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingStation/*?select=tname`
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/*?select=tname`
-
-### Now let's get some historical measurements:
-
-**Get e-charging station data from a recent day in november**
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/echarging-plug-status/2024-11-15/2024-11-16`
-
-**Limit the number of results**
-
-Limit your output by adding `limit` to your request, and paginate your
-results with an `offset`. If you want to disable the limit, set it to a negative
-number, like `limit=-1`. Per default, the limit is set to a low number to
-prevent excessive response times.
-
-
-### Filtering with SELECT and WHERE
-
-It is possible to filter against JSON fields (columns in a database) with
-`select=alias,alias,alias,...`, or per record (rows in a database) with
-`where=filter,filter,filter,...`. The latter, is a conjunction (`and`) of all
-clauses. Also complex logic is possible, with nested `or(...)` and `and(...)`
-clauses, for instance `where=or(filter,filter,and(filter,filter))`.
-
-**alias**
-An `alias` is a list of point-separated-fields, where each field corresponds
-to a step inside the JSON hierarchy. Internally, the first field represents the
-database column and all subsequent fields drill into the JSON hierarchy.
-For example, `metadata.municipality.cap` is an JSONB inside the database with a
-column `metadata` and a JSONB object called `municipality` which has a `cap`
-inside.
-
-**filter**
-A `filter` has the form `alias.operator.value_or_list`.
-
-**value_or_list**
-
-- `value`: Whatever you want, also a regular expression. Use double-quotes to
-  force string recognition. Alternatively, you can escape characters `,`, `'`
-  and `"` with a `\`. Use url-encoding, if your tool does not support certain
-  characters. Special values are `null`, numbers and omitted values. Examples:
-  - `description.eq.null`, checks if a description is not set
-  - `description.eq.`, checks if a description is a string of length 0
-- `list`: `(value,value,value)`
-
-**operator**
-
-- `eq`: Equal
-- `neq`: Not Equal
-- `lt`: Less Than
-- `gt`: Greater Than
-- `lteq`: Less Than Or Equal
-- `gteq`: Greater Than Or Equal
-etc...
-
-**logical operations**
-
-- `and(filter,filter,...)`: Conjunction of filters (can be nested)
-- `or(filter,filter,...)`: Disjunction of filters (can be nested)
-
-### Filtering example:
-
-How to retrieve only some given fields from the `active` e-charging plugs, this also speeds up the fetching of the data:
-
-`https://mobility.api.opendatahub.com/v2/flat/EChargingPlug/echarging-plug-status/2024-11-15/2024-11-16?limit=200&select=sorigin,sname,mvalidtime,mperiod,mvalue&where=sorigin.eq.route220,sactive.eq.true`
 
 ## Additional Resources
 - [Open Data Hub Official Website](https://opendatahub.com/)
