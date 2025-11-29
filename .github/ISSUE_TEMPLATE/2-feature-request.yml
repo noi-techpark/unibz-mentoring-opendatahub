@@ -1,0 +1,53 @@
+name: Feature request
+description: Suggest an idea or enhancement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your idea to improve this project.
+        Please describe the problem and your proposed solution.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Short summary
+      description: One sentence describing the feature.
+      placeholder: "Support filtering stations by provider"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What problem does this feature solve? When do you face it?
+      placeholder: "When I ..., I can't ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How do you imagine this feature working?
+      placeholder: "Add a dropdown to filter by ..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you tried any workarounds or other approaches?
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Designs, links, or any other notes.
+    validations:
+      required: false
