@@ -18,6 +18,24 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: where-did-it-happen
+    attributes:
+      label: Where did it happen?
+      description: Page, module, API endpoint, or part of the system where you saw the problem.
+      placeholder: "Station detail page on the website"
+    validations:
+      required: true
+
+  - type: textarea
+    id: how-did-it-happen
+    attributes:
+      label: How did it happen?
+      description: Briefly describe what you were doing when the problem occurred.
+      placeholder: "After applying provider filter and clicking 'Load more'"
+    validations:
+      required: true
+
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -43,6 +61,15 @@ body:
     attributes:
       label: Actual behavior
       description: What actually happened?
+    validations:
+      required: true
+
+  - type: input
+    id: where-reproduce
+    attributes:
+      label: Where can we reproduce it?
+      description: Exact URL, environment, or path we should use to reproduce the issue.
+      placeholder: "https://…, staging environment, mobile app v3.2.1"
     validations:
       required: true
 
