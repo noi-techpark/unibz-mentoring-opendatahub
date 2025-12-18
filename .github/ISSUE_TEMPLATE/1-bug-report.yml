@@ -1,3 +1,8 @@
+name: Bug report
+description: Report something that is not working as expected.
+title: "[Bug]: "
+labels: ["bug"]
+
 body:
   - type: markdown
     attributes:
@@ -74,7 +79,7 @@ body:
     attributes:
       label: Environment
       description: OS, browser, version, or other relevant details.
-      placeholder: "Windows 11, Chrome 129, API dev environment"
+      placeholder: "Windows 11, Chrome 129"
     validations:
       required: false
 
